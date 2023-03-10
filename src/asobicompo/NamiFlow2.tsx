@@ -19,7 +19,8 @@ import {
     const nami1controll = useAnimationControls();
     const nami2controll = useAnimationControls();
     const nami1Motionvalue = useMotionValue(0);
-    const namiDuration = duration;
+    // const namiDuration = duration;
+    const [namiDuration, setNamiDuration] = useState(duration)
     const namiWidth = window.innerWidth;
     const namiMove = namiWidth;
     const nami2delay = namiDuration*1000/2

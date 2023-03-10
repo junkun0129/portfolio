@@ -6,8 +6,8 @@ import Nami2 from "/nami2.png";
 import { motion, useTransform, useMotionValue } from "framer-motion";
 import useMousePosition from "../asobicompo/useMousePosition";
 import { useRenderTransform } from "../asobicompo/useRenderTranform";
-import NamiFlow from "./NamiFlow";
-import NamiFlow2 from "./NamiFlow2";
+import NamiFlow from "../asobicompo/NamiFlow";
+import NamiFlow2 from "../asobicompo/NamiFlow2";
 type type = {
   state: number;
 };
@@ -39,12 +39,8 @@ function Title({ state }: type) {
             height: "100%",
           }}
         >
-
-          <NamiFlow duration={20}></NamiFlow>
-          <NamiFlow2 duration={15}></NamiFlow2>
-          <div style={{width:50, height:500, position:"absolute", backgroundColor:"yellow", right:-window.innerWidth+70, top:100}}>asdf</div>
-          <h1>smoke </h1>
-          <h1>boats</h1>
+          {/* <h1>smoke </h1>
+          <h1>boats</h1> */}
         </motion.div>
       </motion.div>
     </>
