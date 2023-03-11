@@ -7,16 +7,24 @@ import frame from "/frame.png";
 import reactImg from "/react.png";
 import { motion } from "framer-motion";
 
-type type = {};
-function Hune() {
+type type = {
+  width: number;
+  top: number;
+  left: number;
+  name: string;
+  picture: string;
+  delay: number;
+};
+function Hune({ width, top, left, name, picture, delay }: type) {
   return (
     <>
       <motion.div
         style={{
           position: "absolute",
-          top: 450,
-          width: 500,
-          height: 250,
+          top,
+          left,
+          width,
+          height: width / 2,
           //   backgroundColor: "red",
         }}
         animate={{
@@ -26,6 +34,7 @@ function Hune() {
           duration: 2,
           repeat: 10000,
           repeatType: "mirror",
+          delay,
         }}
       >
         <motion.div
@@ -35,6 +44,7 @@ function Hune() {
             repeat: 10000,
             repeatType: "mirror",
             duration: 2.5,
+            delay,
           }}
         >
           <div
@@ -72,7 +82,7 @@ function Hune() {
                 position: "absolute",
                 width: "70%",
                 height: "70%",
-                backgroundImage: `url(${reactImg})`,
+                backgroundImage: `url(${picture})`,
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
@@ -100,7 +110,7 @@ function Hune() {
               fontSize: "150%",
             }}
           >
-            React
+            {name}
           </div>
         </motion.div>
       </motion.div>
