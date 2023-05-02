@@ -13,7 +13,7 @@ function Skills({ state }: type) {
     <>
       <motion.div
         style={{ position: "absolute" }}
-        animate={state !== 2 ? { y: -1000 } : { y: 0 }}
+        animate={state !== 1 ? { y: -1000 } : { y: 0 }}
       >
         <div style={{ position: "relative" }}>
           <NamiFlow duration={22}></NamiFlow>

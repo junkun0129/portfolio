@@ -14,6 +14,8 @@ import Project from "./component/Project";
 import Contact from "./component/Contact";
 import NamiFlow from "./asobicompo/NamiFlow";
 import NamiFlow2 from "./asobicompo/NamiFlow2";
+import Jumpei from "/jumpeiLogo.png";
+import ProcressBar from "./asobicompo/ProcressBar";
 
 function Wahu() {
   console.log("render wahu");
@@ -31,8 +33,6 @@ function Wahu() {
       setState(2);
     } else if (3000 < scrollY.get() && scrollY.get() < 4000) {
       setState(3);
-    } else if (4000 < scrollY.get() && scrollY.get() < 5000) {
-      setState(4);
     }
     setNami1duration(30);
     setNami2duration(30);
@@ -46,7 +46,7 @@ function Wahu() {
     <>
       <motion.div className={styles.Wahu}>
         <Title state={state}></Title>
-        <Introduce state={state}></Introduce>
+        {/* <Introduce state={state}></Introduce> */}
         <Skills state={state}></Skills>
         <Project state={state}></Project>
         <Contact state={state}></Contact>
@@ -56,32 +56,14 @@ function Wahu() {
             position: "absolute",
             top: 20,
             left: 20,
-            fontSize: 35,
-            backgroundColor: "brown",
-            borderRadius: 20,
-            width: 200,
-            height: 50,
-            textAlign: "center",
-            justifyContent: "center",
-            color: "white",
-            display: "flex",
-            alignItems: "center",
+            width: 250,
+            height: 75,
+            backgroundImage: `url(${Jumpei})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
           }}
-        >
-          jumpei
-        </div>
-        <div
-          style={{
-            width: 50,
-            height: 500,
-            position: "absolute",
-            backgroundColor: "brown",
-            right: 70,
-            top: 100,
-          }}
-        >
-          asdf
-        </div>
+        ></div>
+        <ProcressBar left={1350} top={100} state={state}></ProcressBar>
       </motion.div>
     </>
   );
