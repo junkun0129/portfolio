@@ -1,4 +1,4 @@
-const localhost = "http://localhost:8000";
+const localhost = "https://portfolio-backend-ita5.onrender.com";
 
 const reuseValue = {
   backendURL: localhost,
