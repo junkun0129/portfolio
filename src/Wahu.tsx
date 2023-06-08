@@ -16,6 +16,7 @@ import NamiFlow from "./asobicompo/NamiFlow";
 import NamiFlow2 from "./asobicompo/NamiFlow2";
 import Jumpei from "/jumpeiLogo.png";
 import ProcressBar from "./asobicompo/ProcressBar";
+import ChouchinBar from "./asobicompo/ChouchinBar";
 
 function Wahu() {
   console.log("render wahu");
@@ -63,7 +64,8 @@ function Wahu() {
             backgroundRepeat: "no-repeat",
           }}
         ></div>
-        <ProcressBar left={1350} top={100} state={state}></ProcressBar>
+        {/* <ProcressBar left={500} top={100} state={state}></ProcressBar> */}
+        <ChouchinBar state={state}></ChouchinBar>
       </motion.div>
     </>
   );

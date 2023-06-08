@@ -2,6 +2,9 @@ import * as React from "react";
 import { Component, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import reuseValue from "../ReuseValue";
+import { TextField } from "@mui/material";
+import tama from "/tama.png";
+import tama2 from "/tama3.png";
 type type = {
   state: number;
 };
@@ -61,10 +64,36 @@ function Contact({ state }: type) {
         >
           <div
             style={{
+              position: "absolute",
+              width: "100%",
+              height: "90%",
+              left: "-20%",
+              top: "30%",
+              backgroundImage: `url(${tama})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+          <div
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "90%",
+              right: "-80%",
+              bottom: "30%",
+              backgroundImage: `url(${tama2})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+          <div
+            style={{
               width: "50%",
               height: "50%",
               display: "flex",
               flexDirection: "column",
+              marginTop: "4%",
+              zIndex: 10,
             }}
           >
             <div
@@ -98,6 +127,9 @@ function Contact({ state }: type) {
                     justifyContent: "center",
                     width: "95%",
                     height: "80%",
+                    background: "rgb(240, 240, 240,0.4)",
+                    borderRadius: "10px",
+                    border: "2px solid black",
                   }}
                   type="text"
                 />
@@ -126,6 +158,8 @@ function Contact({ state }: type) {
                     justifyContent: "center",
                     width: "95%",
                     height: "80%",
+                    background: "rgb(240, 240, 240,0.4)",
+                    borderRadius: "10px",
                   }}
                   type="text"
                 />
@@ -155,6 +189,8 @@ function Contact({ state }: type) {
                   justifyContent: "center",
                   width: "97.5%",
                   height: "80%",
+                  background: "rgb(240, 240, 240,0.4)",
+                  borderRadius: "10px",
                 }}
                 type="text"
               />
@@ -183,6 +219,9 @@ function Contact({ state }: type) {
                   justifyContent: "center",
                   width: "97.5%",
                   height: "90%",
+                  background: "rgb(240, 240, 240,0.4)",
+                  borderRadius: "10px",
+                  border: "solid black 2px",
                 }}
               />
             </div>

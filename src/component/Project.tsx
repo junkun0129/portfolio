@@ -6,6 +6,9 @@ import reactImg from "/react.png";
 import styles from "./Project.module.scss";
 import { Tooltip, IconButton, Link } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import Tama from "/tama2.png";
+import Frame from "/projectIntroduce-betu.png";
+import Kumo from "/cloud2.png";
 type type = {
   state: number;
 };
@@ -156,8 +159,48 @@ function Project({ state }: type) {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              position: "relative",
             }}
           >
+            <div
+              style={{
+                position: "absolute",
+                width: "25%",
+                height: "20%",
+                left: "-10%",
+                top: "20%",
+                backgroundImage: `url(${Kumo})`,
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                zIndex: 10,
+              }}
+            ></div>
+            <div
+              style={{
+                position: "absolute",
+                width: "10%",
+                height: "20%",
+                right: "4%",
+                top: "65%",
+                backgroundImage: `url(${Kumo})`,
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                zIndex: 10,
+              }}
+            ></div>
+            <div
+              style={{
+                position: "absolute",
+                width: "15%",
+                height: "20%",
+                left: "10%",
+                bottom: "-5%",
+                backgroundImage: `url(${Kumo})`,
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                zIndex: 10,
+              }}
+            ></div>
             <div
               className={styles.nameBox}
               style={{
@@ -251,9 +294,34 @@ function Project({ state }: type) {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              marginRight: "20%",
+              marginRight: "15%",
+              position: "relative",
             }}
           >
+            <div
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "30%",
+                right: "-90%",
+                bottom: "0%",
+                backgroundImage: `url(${Tama})`,
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                zIndex: 10,
+              }}
+            ></div>
+            {/* <div
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "30%",
+                backgroundImage: `url(${Frame})`,
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                zIndex: 10,
+              }}
+            ></div> */}
             <div
               style={{
                 width: "100%",
@@ -263,7 +331,6 @@ function Project({ state }: type) {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "space-around",
-                background: "rgb(240, 240, 240,0.4)",
               }}
             >
               {projectState.map((project, i) => {
@@ -272,7 +339,6 @@ function Project({ state }: type) {
                     style={{
                       width: "100%",
                       height: "100%",
-                      border: "3px solid black",
                       position: "absolute",
                       opacity: 0,
                     }}
@@ -289,10 +355,12 @@ function Project({ state }: type) {
                       sx={{
                         width: "100%",
                         height: "100%",
+                        position: "relative",
+                        marginTop: "15%",
+                        marginRight: "-10%",
                       }}
                       stopAutoPlayOnHover={false}
                       height={550}
-                      navButtonsAlwaysVisible={true}
                     >
                       {projects[i].showcase.map((element) => {
                         return (
@@ -301,50 +369,58 @@ function Project({ state }: type) {
                               width: "100%",
                               height: "100%",
                               position: "relative",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
                             }}
                           >
                             <div
                               style={{
-                                position: "absolute",
-                                bottom: "0",
-                                right: "8%",
-                                zIndex: "10",
-                              }}
-                            >
-                              <Tooltip title={projects[i].url}>
-                                <IconButton>
-                                  <Link href={projects[i].url} color="inherit">
-                                    <GitHubIcon fontSize="large" />
-                                  </Link>
-                                </IconButton>
-                              </Tooltip>
-                            </div>
-                            <div
-                              style={{
-                                width: "100%",
-                                height: "60%",
+                                width: "90%",
+                                height: "35%",
                                 backgroundImage: `url(${element.url})`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
-
+                                position: "relative",
                                 // backgroundColor: "blue",
+                                paddingTop: "12%",
                               }}
-                            ></div>
+                            >
+                              <div
+                                style={{
+                                  position: "absolute",
+                                  bottom: "0",
+                                  right: "2%",
+                                  zIndex: "10",
+                                }}
+                              >
+                                <Tooltip title={projects[i].url}>
+                                  <IconButton>
+                                    <Link
+                                      href={projects[i].url}
+                                      color="inherit"
+                                    >
+                                      <GitHubIcon fontSize="large" />
+                                    </Link>
+                                  </IconButton>
+                                </Tooltip>
+                              </div>
+                            </div>
                             <div
                               style={{
                                 display: "flex",
                                 justifyContent: "center",
                                 flexWrap: "wrap",
-                                width: "100%",
-                                height: "40%",
+                                width: "94%",
+                                height: "30%",
                                 fontSize: "1.8rem",
-                                overflow: "scroll",
                                 padding: "1rem",
+                                marginTop: "5%",
+                                background: "rgb(240, 240, 240,0.7)",
                               }}
                             >
-                              {element.text}
+                              <div>{element.text}</div>
                             </div>
-                            <div>;asdfsdfsaf</div>
                           </div>
                         );
                       })}
