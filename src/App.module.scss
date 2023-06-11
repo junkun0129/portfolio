@@ -1,8 +1,13 @@
-body{
-    margin: 0;
-    padding: 0;
-    .App{
-        height: 5000px;
-        position: relative;
-    }
+@font-face {
+  font-family: "washi";
+  src: url("./assets/wahufont.ttf");
+}
+body {
+  margin: 0;
+  padding: 0;
+  .App {
+    height: 5000px;
+    position: relative;
+    font-family: "washi";
+  }
 }

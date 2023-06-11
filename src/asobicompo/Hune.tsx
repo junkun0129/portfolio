@@ -28,7 +28,7 @@ function Hune({ width, top, left, name, picture, delay }: type) {
           //   backgroundColor: "red",
         }}
         animate={{
-          y: [40, -40],
+          y: [30, -30],
         }}
         transition={{
           duration: 2,

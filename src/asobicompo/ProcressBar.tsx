@@ -55,9 +55,6 @@ const chou1InsideStyle = {
 const chou2InsideStyle = {
   width: "100%",
   height: "100%",
-  backgroundImage: `url(${chou2})`,
-  backgroundSize: "contain",
-  backgroundRepeat: "no-repeat",
   opacity: 0,
 };
 const chou3InsideStyle = {

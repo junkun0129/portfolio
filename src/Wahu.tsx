@@ -17,13 +17,12 @@ import NamiFlow2 from "./asobicompo/NamiFlow2";
 import Jumpei from "/jumpeiLogo.png";
 import ProcressBar from "./asobicompo/ProcressBar";
 import ChouchinBar from "./asobicompo/ChouchinBar";
+import { Theme, useMediaQuery } from "@mui/material";
 
 function Wahu() {
   console.log("render wahu");
   const { scrollY } = useScroll();
   const [state, setState] = useState(0);
-  const [nami1duration, setNami1duration] = useState(20);
-  const [nami2duration, setNami2duration] = useState(15);
 
   useMotionValueEvent(scrollY, "change", () => {
     if (scrollY.get() < 1000) {
@@ -35,37 +34,76 @@ function Wahu() {
     } else if (3000 < scrollY.get() && scrollY.get() < 4000) {
       setState(3);
     }
-    setNami1duration(30);
-    setNami2duration(30);
-    console.log(";start");
   });
-
-  useMotionValueEvent(scrollY, "velocityChange", () => {
-    console.log("close");
-  });
+  const sm = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+  useMotionValueEvent(scrollY, "velocityChange", () => {});
   return (
     <>
-      <motion.div className={styles.Wahu}>
-        <Title state={state}></Title>
-        {/* <Introduce state={state}></Introduce> */}
-        <Skills state={state}></Skills>
-        <Project state={state}></Project>
-        <Contact state={state}></Contact>
-
-        <div
+      <motion.div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          backgroundImage: "url(/washi.jpg)",
+          position: "fixed",
+          overflow: sm ? "none" : "scroll",
+        }}
+      >
+        <ChouchinBar
+          state={state}
           style={{
-            position: "absolute",
-            top: 20,
-            left: 20,
-            width: 250,
-            height: 75,
-            backgroundImage: `url(${Jumpei})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
+            width: "50%",
+            height: "15%",
+            marginTop: "1%",
+            marginLeft: "25%",
+            //   backgroundColor: "red",
+            display: "flex",
+            justifyContent: "space-around",
+            position: "fixed",
           }}
-        ></div>
-        {/* <ProcressBar left={500} top={100} state={state}></ProcressBar> */}
-        <ChouchinBar state={state}></ChouchinBar>
+        ></ChouchinBar>
+        {sm ? (
+          <div>
+            <Title
+              animate={state !== 0 ? { y: -1000 } : { y: 0 }}
+              style={{ position: "absolute", width: "100%", height: "100%" }}
+            ></Title>
+            <Skills
+              animate={state !== 1 ? { y: -1000 } : { y: 0 }}
+              style={{ position: "absolute", width: "100%", height: "100%" }}
+            ></Skills>
+            <Project
+              animate={
+                state !== 2
+                  ? {
+                      y: -1000,
+                    }
+                  : {
+                      y: 0,
+                    }
+              }
+              style={{ position: "absolute", width: "100%", height: "100%" }}
+            ></Project>
+            <Contact
+              animate={
+                state !== 3
+                  ? {
+                      y: -1000,
+                    }
+                  : {
+                      y: 0,
+                    }
+              }
+              style={{ position: "absolute", width: "100%", height: "100%" }}
+            ></Contact>
+          </div>
+        ) : (
+          <div>
+            <Title style={{ marginTop: "30%" }}></Title>
+            <Skills style={{ height: "650px" }}></Skills>
+            <Project style={{ width: "100%", height: "100%" }}></Project>
+            <Contact style={{ width: "100%", height: "100%" }}></Contact>
+          </div>
+        )}
       </motion.div>
     </>
   );

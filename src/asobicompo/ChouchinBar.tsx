@@ -10,8 +10,10 @@ import chou2Dark from "/tyouchin2-dark.png";
 import chou3Dark from "/tyouchin3-dark.png";
 import chou4Dark from "/tyouchin4-dark.png";
 import styles from "./ProccessBar.module.scss";
+import { Theme, useMediaQuery } from "@mui/material";
 type PropsType = {
   state: number;
+  style?: React.CSSProperties;
 };
 const chouchinImg = [
   {
@@ -35,33 +37,29 @@ const chouchinImg = [
     name: "Contact",
   },
 ];
-function ChouchinBar({ state }: PropsType) {
+function ChouchinBar({ state, style }: PropsType) {
   const flameAnimation = useAnimationControls();
-
+  const sm = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
   React.useEffect(() => {
     flameAnimation.start({
-      x: state * 190,
+      x: (state * window.innerWidth) / 8,
     });
+    // console.log(window.innerWidth);
   }, [state]);
   return (
     <>
       <div
         style={{
-          width: "50%",
-          height: "15%",
-          marginTop: "1%",
-          marginLeft: "25%",
-          //   backgroundColor: "red",
-          display: "flex",
-          justifyContent: "space-around",
-          position: "relative",
+          ...style,
         }}
       >
-        <motion.div
-          className={styles.flame}
-          animate={flameAnimation}
-          transition={{ duration: 1 }}
-        ></motion.div>
+        {sm && (
+          <motion.div
+            className={styles.flame}
+            animate={flameAnimation}
+            transition={{ duration: 1 }}
+          ></motion.div>
+        )}
 
         {chouchinImg.map((chouchin, i) => {
           return (
@@ -92,8 +90,8 @@ function ChouchinBar({ state }: PropsType) {
                   <div
                     style={{
                       position: "absolute",
-                      top: "35%",
-                      right: "10%",
+                      top: sm ? "35%" : "80%",
+                      right: sm ? "10%" : "-20%",
                       fontSize: "1.5rem",
                     }}
                   >

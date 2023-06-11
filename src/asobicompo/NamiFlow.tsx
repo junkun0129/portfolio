@@ -55,7 +55,7 @@ function NamiFlow({ duration }: type) {
           position: "absolute",
           width: "100vw",
           height: "100vh",
-          top: -100,
+          top: -50,
         }}
       >
         <div style={{ position: "relative", width: "100%", height: "100%" }}>

@@ -14,15 +14,20 @@ import Alphabet from "./assetscompo/Alphabet";
 import Wahu from "./Wahu";
 import styles from "./App.module.scss";
 import Jikken from "./component/Jikken";
+import { ThemeProvider, createTheme } from "@mui/material";
 //import './App.css'
 
 function App() {
+  const theme = createTheme();
+
   return (
     <>
-      <div className={styles.App}>
-        <Wahu></Wahu>
-        {/* <Jikken></Jikken> */}
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className={styles.App}>
+          <Wahu></Wahu>
+          {/* <Jikken></Jikken> */}
+        </div>
+      </ThemeProvider>
     </>
   );
 }
