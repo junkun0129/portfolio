@@ -4,82 +4,18 @@ import Carousel from "react-material-ui-carousel";
 import { motion } from "framer-motion";
 import reactImg from "/react.png";
 import styles from "./Project.module.scss";
-import { Tooltip, IconButton, Link } from "@mui/material";
+import { Tooltip, IconButton, Link, useMediaQuery, Theme } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Tama from "/tama2.png";
 import Frame from "/projectIntroduce-betu.png";
 import Kumo from "/cloud2.png";
+import { projects } from "../data/projectData";
 type type = {
   style?: React.CSSProperties;
 };
 
 // const projects = ["IwataniQuest", "whitleblower", "nanika"];
-const projects = [
-  {
-    name: "IwataniQuest",
-    showcase: [
-      {
-        url: "./IwataniQuest-home.png",
-        text: "Im jumpei",
-      },
-    ],
-    url: "https://iwatani-quest-frontend.vercel.app/",
-  },
-  {
-    name: "whitleblower",
-    showcase: [
-      {
-        url: "./whistleblower-adminHome.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
-      },
-      {
-        url: "./whistleblower-general-makeClaim-deskTop.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
-      },
-      {
-        url: "./whistleblower-general-pastClaims-deskTop.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
-      },
-      {
-        url: "./whistleblower-admin-claimDetail.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
-      },
-    ],
-    url: "https://dev-whistler-app.vercel.app/login",
-  },
-  {
-    name: "English Translator",
-    showcase: [
-      {
-        url: "./LanguageApp-home.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
-      },
-      {
-        url: "./LanguageApp-wordDetail.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
-      },
-    ],
-    url: "https://language-app-6s3v-ofujpyn03-junkun0129.vercel.app/",
-  },
-  {
-    name: "howl's landing page",
-    showcase: [
-      {
-        url: "./howl-home.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
-      },
-      {
-        url: "./introduction-page.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
-      },
-      {
-        url: "./marchandise-page.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
-      },
-    ],
-    url: "https://houl-landing-page-m3s73jpis-junkun0129.vercel.app/",
-  },
-];
+
 const Project = React.forwardRef(
   ({ style }: type, ref: React.Ref<HTMLDivElement>) => {
     const [projectState, setProjectState] = useState(
@@ -129,6 +65,8 @@ const Project = React.forwardRef(
       //   ];
       // });
     };
+    const sm = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+
     return (
       <>
         <motion.div style={{ ...style }} ref={ref}>

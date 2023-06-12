@@ -2,7 +2,7 @@ import * as React from "react";
 import { Component, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import reuseValue from "../ReuseValue";
-import { TextField } from "@mui/material";
+import { TextField, Theme, useMediaQuery } from "@mui/material";
 import tama from "/tama.png";
 import tama2 from "/tama3.png";
 type type = {
@@ -34,6 +34,9 @@ const Contact = React.forwardRef(
         }
       });
     };
+    const sm = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+    const md = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
+
     return (
       <>
         <motion.div
@@ -79,93 +82,167 @@ const Contact = React.forwardRef(
             ></div>
             <div
               style={{
-                width: "50%",
-                height: "50%",
+                width: sm ? "50%" : "70%",
+                height: sm ? "50%" : "70%",
                 display: "flex",
                 flexDirection: "column",
                 marginTop: "4%",
                 zIndex: 10,
               }}
             >
-              <div
-                style={{
-                  height: "20%",
-                  width: "100%",
-                  display: "flex",
-                }}
-              >
+              {sm ? (
                 <div
                   style={{
-                    width: "50%",
-                    height: "100%",
+                    height: "20%",
+                    width: "100%",
                     display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
                   }}
                 >
-                  <input
-                    onChange={(e) =>
-                      setEmailInfo((pre) => {
-                        return {
-                          ...pre,
-                          name: e.target.value,
-                        };
-                      })
-                    }
+                  <div
                     style={{
+                      width: "50%",
+                      height: "100%",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      width: "95%",
-                      height: "80%",
-                      background: "rgb(240, 240, 240,0.4)",
-                      borderRadius: "10px",
-                      border: "2px solid black",
-                      fontSize: "1.2rem",
-                      fontFamily: "serif",
                     }}
-                    placeholder="name"
-                    type="text"
-                  />
-                </div>
-                <div
-                  style={{
-                    width: "50%",
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <input
-                    onChange={(e) =>
-                      setEmailInfo((pre) => {
-                        return {
-                          ...pre,
-                          email: e.target.value,
-                        };
-                      })
-                    }
+                  >
+                    <input
+                      onChange={(e) =>
+                        setEmailInfo((pre) => {
+                          return {
+                            ...pre,
+                            name: e.target.value,
+                          };
+                        })
+                      }
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "95%",
+                        height: "80%",
+                        background: "rgb(240, 240, 240,0.4)",
+                        borderRadius: "10px",
+                        border: "2px solid black",
+                        fontSize: "1.2rem",
+                        fontFamily: "serif",
+                      }}
+                      placeholder="name"
+                      type="text"
+                    />
+                  </div>
+                  <div
                     style={{
+                      width: "50%",
+                      height: "100%",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      width: "95%",
-                      height: "80%",
-                      background: "rgb(240, 240, 240,0.4)",
-                      borderRadius: "10px",
-                      fontSize: "1.2rem",
-                      fontFamily: "serif",
                     }}
-                    placeholder="email"
-                    type="text"
-                  />
+                  >
+                    <input
+                      onChange={(e) =>
+                        setEmailInfo((pre) => {
+                          return {
+                            ...pre,
+                            email: e.target.value,
+                          };
+                        })
+                      }
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "95%",
+                        height: "80%",
+                        background: "rgb(240, 240, 240,0.4)",
+                        borderRadius: "10px",
+                        fontSize: "1.2rem",
+                        fontFamily: "serif",
+                      }}
+                      placeholder="email"
+                      type="text"
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : (
+                // mobile screen
+                <>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "30%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <input
+                      onChange={(e) =>
+                        setEmailInfo((pre) => {
+                          return {
+                            ...pre,
+                            name: e.target.value,
+                          };
+                        })
+                      }
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "95%",
+                        height: "80%",
+                        background: "rgb(240, 240, 240,0.4)",
+                        borderRadius: "10px",
+                        border: "2px solid black",
+                        fontSize: "1.2rem",
+                        fontFamily: "serif",
+                      }}
+                      placeholder="name"
+                      type="text"
+                    />
+                  </div>
+
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "30%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <input
+                      onChange={(e) =>
+                        setEmailInfo((pre) => {
+                          return {
+                            ...pre,
+                            email: e.target.value,
+                          };
+                        })
+                      }
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "95%",
+                        height: "80%",
+                        background: "rgb(240, 240, 240,0.4)",
+                        borderRadius: "10px",
+                        fontSize: "1.2rem",
+                        fontFamily: "serif",
+                      }}
+                      placeholder="email"
+                      type="text"
+                    />
+                  </div>
+                </>
+              )}
               <div
                 style={{
                   width: "100%",
-                  height: "20%",
+                  height: sm ? "20%" : "30%",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -198,7 +275,7 @@ const Contact = React.forwardRef(
               <div
                 style={{
                   width: "100%",
-                  height: "60%",
+                  height: sm ? "60%" : "70%",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -230,8 +307,8 @@ const Contact = React.forwardRef(
             </div>
             <motion.div
               style={{
-                marginTop: "1%",
-                width: "20%",
+                marginTop: sm ? "1%" : "6%",
+                width: sm ? "20%" : "50%",
                 height: "10%",
                 display: "flex",
                 justifyContent: "center",
@@ -251,7 +328,9 @@ const Contact = React.forwardRef(
                 }}
                 style={{
                   all: "unset",
-                  fontSize: "1.5rem",
+                  fontSize: sm ? "1.5rem" : "1.1rem",
+                  width: sm ? "30%" : "60%",
+                  // border: "black solid 3px",
                 }}
                 onClick={submitEmail}
               >
@@ -265,7 +344,7 @@ const Contact = React.forwardRef(
                   height: "100%",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
-                  right: "10%",
+                  right: md ? "0%" : "-10%",
                 }}
                 animate={animeon ? { rotate: [-10, 0, 10] } : {}}
                 transition={{
@@ -290,7 +369,7 @@ const Contact = React.forwardRef(
                   height: "100%",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
-                  left: "10%",
+                  left: md ? "0%" : "-10%",
                 }}
               ></motion.div>
             </motion.div>

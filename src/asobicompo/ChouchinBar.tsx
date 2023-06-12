@@ -48,6 +48,18 @@ function ChouchinBar({ state, style }: PropsType) {
   }, [state]);
   return (
     <>
+      {!sm && (
+        <div
+          style={{
+            width: "100vw",
+            height: "15vh",
+            position: "fixed",
+            backgroundImage: "url(/washi.jpg)",
+            backgroundSize: "cover",
+            zIndex: "10",
+          }}
+        ></div>
+      )}
       <div
         style={{
           ...style,
@@ -90,7 +102,7 @@ function ChouchinBar({ state, style }: PropsType) {
                   <div
                     style={{
                       position: "absolute",
-                      top: sm ? "35%" : "80%",
+                      top: sm ? "35%" : "60%",
                       right: sm ? "10%" : "-20%",
                       fontSize: "1.5rem",
                     }}

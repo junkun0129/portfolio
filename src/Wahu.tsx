@@ -18,10 +18,21 @@ import Jumpei from "/jumpeiLogo.png";
 import ProcressBar from "./asobicompo/ProcressBar";
 import ChouchinBar from "./asobicompo/ChouchinBar";
 import { Theme, useMediaQuery } from "@mui/material";
+import ProjectMobile from "./component/ProjectMobile";
 
 function Wahu() {
   console.log("render wahu");
-  const { scrollY } = useScroll();
+  const sm = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+
+  const mobileScroll = React.useRef(null);
+  const suka = React.useRef(null);
+  React.useEffect(() => {
+    if (sm) {
+    }
+  }, [sm]);
+  const { scrollY } = useScroll({
+    container: mobileScroll,
+  });
   const [state, setState] = useState(0);
 
   useMotionValueEvent(scrollY, "change", () => {
@@ -34,11 +45,28 @@ function Wahu() {
     } else if (3000 < scrollY.get() && scrollY.get() < 4000) {
       setState(3);
     }
+    console.log(scrollY);
   });
-  const sm = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+
   useMotionValueEvent(scrollY, "velocityChange", () => {});
   return (
     <>
+      <ChouchinBar
+        state={state}
+        style={{
+          width: "50%",
+          height: "15%",
+          marginTop: "1%",
+          marginLeft: "25%",
+          //   backgroundColor: "red",
+          display: "flex",
+          justifyContent: "space-around",
+          position: "fixed",
+          backgroundImage: sm ? "none" : "none",
+          backgroundSize: "contain",
+          zIndex: "10",
+        }}
+      ></ChouchinBar>
       <motion.div
         style={{
           width: "100vw",
@@ -47,20 +75,8 @@ function Wahu() {
           position: "fixed",
           overflow: sm ? "none" : "scroll",
         }}
+        {...(!sm && { ref: mobileScroll })}
       >
-        <ChouchinBar
-          state={state}
-          style={{
-            width: "50%",
-            height: "15%",
-            marginTop: "1%",
-            marginLeft: "25%",
-            //   backgroundColor: "red",
-            display: "flex",
-            justifyContent: "space-around",
-            position: "fixed",
-          }}
-        ></ChouchinBar>
         {sm ? (
           <div>
             <Title
@@ -100,8 +116,10 @@ function Wahu() {
           <div>
             <Title style={{ marginTop: "30%" }}></Title>
             <Skills style={{ height: "650px" }}></Skills>
-            <Project style={{ width: "100%", height: "100%" }}></Project>
-            <Contact style={{ width: "100%", height: "100%" }}></Contact>
+            <ProjectMobile
+              style={{ width: "100%", height: "100%" }}
+            ></ProjectMobile>
+            <Contact style={{ width: "100%", height: "400px" }}></Contact>
           </div>
         )}
       </motion.div>
