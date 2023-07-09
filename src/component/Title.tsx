@@ -54,7 +54,7 @@ const Title = React.forwardRef(
           >
             {/* clouds */}
 
-            <div
+            <motion.div
               style={{
                 height: "50%",
                 width: "30%",
@@ -65,8 +65,17 @@ const Title = React.forwardRef(
                 left: "-10%",
                 top: "10%",
               }}
-            ></div>
-            <div
+              animate={{ x: [10, -10, 10] }}
+              transition={{
+                delay: 0.2,
+                duration: 4,
+                repeat: 1000,
+                repeatType: "mirror",
+                times: [0, 0.5, 1],
+                ease: "easeInOut",
+              }}
+            ></motion.div>
+            <motion.div
               style={{
                 height: "10%",
                 width: "10%",
@@ -75,9 +84,19 @@ const Title = React.forwardRef(
                 backgroundRepeat: "no-repeat",
                 position: "absolute",
                 top: "20%",
+                zIndex: "100",
               }}
-            ></div>
-            <div
+              // whileHover={{ x: "50%" }}
+              animate={{ y: [10, -10, 10], x: 30 }}
+              transition={{
+                duration: 4,
+                repeat: 1000,
+                repeatType: "mirror",
+                times: [0, 0.5, 1],
+                ease: "easeInOut",
+              }}
+            ></motion.div>
+            <motion.div
               style={{
                 height: "70%",
                 width: "50%",
@@ -88,8 +107,17 @@ const Title = React.forwardRef(
                 right: "-25%",
                 top: "-20%",
               }}
-            ></div>
-            <div
+              animate={{ x: [10, -10, 10] }}
+              transition={{
+                delay: 0.6,
+                duration: 4,
+                repeat: 1000,
+                repeatType: "mirror",
+                times: [0, 0.5, 1],
+                ease: "easeInOut",
+              }}
+            ></motion.div>
+            <motion.div
               style={{
                 height: "50%",
                 width: "30%",
@@ -100,8 +128,17 @@ const Title = React.forwardRef(
                 bottom: "-20%",
                 left: "-10%",
               }}
-            ></div>
-            <div
+              animate={{ x: [10, -10, 10] }}
+              transition={{
+                delay: 1.2,
+                duration: 4,
+                repeat: 1000,
+                repeatType: "mirror",
+                times: [0, 0.5, 1],
+                ease: "easeInOut",
+              }}
+            ></motion.div>
+            <motion.div
               style={{
                 height: "15%",
                 width: "15%",
@@ -111,8 +148,17 @@ const Title = React.forwardRef(
                 position: "absolute",
                 bottom: "10%",
               }}
-            ></div>
-            <div
+              animate={{ y: [10, -10, 10], x: 10 }}
+              transition={{
+                delay: 0.5,
+                duration: 4,
+                repeat: 1000,
+                repeatType: "mirror",
+                times: [0, 0.5, 1],
+                ease: "easeInOut",
+              }}
+            ></motion.div>
+            <motion.div
               style={{
                 height: "40%",
                 width: "20%",
@@ -123,7 +169,16 @@ const Title = React.forwardRef(
                 bottom: "-15%",
                 right: "5%",
               }}
-            ></div>
+              animate={{ x: [10, -10, 10] }}
+              transition={{
+                delay: 0.2,
+                duration: 4,
+                repeat: 1000,
+                repeatType: "mirror",
+                times: [0, 0.5, 1],
+                ease: "easeInOut",
+              }}
+            ></motion.div>
 
             {/* picture and introduce sentence */}
             {sm && (
@@ -203,7 +258,7 @@ const Title = React.forwardRef(
               >
                 Full-Stack developer
               </div>
-              <div
+              <motion.div
                 style={{
                   fontSize: sm ? "1.9rem" : "1.2rem",
                   left: 100,
@@ -215,7 +270,7 @@ const Title = React.forwardRef(
                 }}
               >
                 with a passion for inventing
-              </div>
+              </motion.div>
             </div>
           </motion.div>
           {!sm && (

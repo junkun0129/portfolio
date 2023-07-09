@@ -227,7 +227,7 @@ const Project = React.forwardRef(
                 position: "relative",
               }}
             >
-              <div
+              <motion.div
                 style={{
                   position: "absolute",
                   width: "100%",
@@ -239,7 +239,16 @@ const Project = React.forwardRef(
                   backgroundRepeat: "no-repeat",
                   zIndex: 10,
                 }}
-              ></div>
+                animate={{ y: [10, -10, 10] }}
+                transition={{
+                  delay: 0.2,
+                  duration: 3,
+                  repeat: 1000,
+                  repeatType: "mirror",
+                  times: [0, 0.5, 1],
+                  ease: "circOut",
+                }}
+              ></motion.div>
               {/* <div
               style={{
                 position: "absolute",
@@ -342,7 +351,7 @@ const Project = React.forwardRef(
                                   flexWrap: "wrap",
                                   width: "94%",
                                   height: "30%",
-                                  fontSize: "1.8rem",
+                                  fontSize: "1.2rem",
                                   padding: "1rem",
                                   marginTop: "5%",
                                   background: "rgb(240, 240, 240,0.7)",
