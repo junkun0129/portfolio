@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Component, useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { Component, useState, useEffect, useCallback } from "react";
+import { motion, useAnimationControls } from "framer-motion";
 import reuseValue from "../ReuseValue";
 import { TextField, Theme, useMediaQuery } from "@mui/material";
 import tama from "/tama.png";
@@ -16,9 +16,12 @@ const Contact = React.forwardRef(
       subject: "",
       text: "",
     });
+    const [isStatus, setIsStatus] = useState("send message");
+    const [isSent, setIsSent] = useState(false);
     const [animeon, setAnimeon] = useState(false);
-    useEffect(() => {}, [emailinfo]);
+    const sentLetterControll = useAnimationControls();
 
+    useEffect(() => {}, [emailinfo]);
     const submitEmail = () => {
       console.log("oij");
       console.log(emailinfo);
@@ -31,11 +34,34 @@ const Contact = React.forwardRef(
           console.log("error");
         } else {
           console.log(res, "sent");
+          setIsSent(true);
         }
       });
     };
     const sm = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
     const md = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
+
+    useEffect(() => {
+      if (isSent) {
+        console.log(";lkj &");
+
+        setIsStatus("sent !!");
+        sentLetterControll
+          .start({
+            rotate: 1,
+            transition: {
+              duration: 2,
+            },
+          })
+          .then(() => {
+            setIsStatus("send message");
+            setIsSent(false);
+            setEmailInfo({ name: "", email: "", subject: "", text: "" });
+          });
+      }
+    }, [isSent]);
+
+    // Call the callback function somewhere in your component to execute its contents
 
     return (
       <>
@@ -116,6 +142,7 @@ const Contact = React.forwardRef(
                           };
                         })
                       }
+                      value={emailinfo.name}
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -150,6 +177,7 @@ const Contact = React.forwardRef(
                           };
                         })
                       }
+                      value={emailinfo.email}
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -187,6 +215,7 @@ const Contact = React.forwardRef(
                           };
                         })
                       }
+                      value={emailinfo.name}
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -222,6 +251,7 @@ const Contact = React.forwardRef(
                           };
                         })
                       }
+                      value={emailinfo.email}
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -257,6 +287,7 @@ const Contact = React.forwardRef(
                       };
                     })
                   }
+                  value={emailinfo.subject}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -290,6 +321,7 @@ const Contact = React.forwardRef(
                       };
                     })
                   }
+                  value={emailinfo.text}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -319,7 +351,7 @@ const Contact = React.forwardRef(
               onHoverEnd={(e) => setAnimeon(false)}
             >
               <motion.button
-                animate={animeon ? { y: [-2, 10, 0] } : {}}
+                animate={sentLetterControll}
                 transition={{
                   repeat: 1000,
                   repeatType: "mirror",
@@ -329,13 +361,17 @@ const Contact = React.forwardRef(
                 style={{
                   all: "unset",
                   fontSize: sm ? "1.5rem" : "1.1rem",
-                  width: sm ? "30%" : "60%",
+                  width: sm ? "70%" : "60%",
                   // border: "black solid 3px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
                 onClick={submitEmail}
               >
-                send message
+                {isStatus}
               </motion.button>
+
               <motion.div
                 style={{
                   backgroundImage: `url(/ougi.png)`,

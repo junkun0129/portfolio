@@ -36,8 +36,9 @@ const Skills = React.forwardRef(
               style={{
                 fontSize: 35,
                 width: "100%",
-                height: "70%",
+                height: sm ? "70%" : "100%",
                 // border: "black solid 2px",
+                marginTop: "3%",
                 display: "flex",
                 justifyContent: "space-around",
                 flexDirection: sm ? "row" : "column",
@@ -70,42 +71,66 @@ const Skills = React.forwardRef(
                           display: "flex",
                           justifyContent: "space-around",
                           alignItems: "center",
+                          borderRadius: "30px",
                         }}
                       >
                         <div
                           style={{
                             backgroundImage: `url(${reactImg})`,
-                            height: "80%",
+                            height: "50%",
                             width: "15%",
                             backgroundSize: "contain",
                             backgroundRepeat: "no-repeat",
+                            display: "flex",
+                            justifyContent: "space-around",
+                            alignItems: "center",
                           }}
                         ></div>
                         <div
                           style={{
-                            backgroundImage: `url(${reactImg})`,
-                            height: "80%",
+                            backgroundImage: "url(/next-js.png)",
+                            height: "50%",
                             width: "15%",
                             backgroundSize: "contain",
                             backgroundRepeat: "no-repeat",
+                            display: "flex",
+                            justifyContent: "space-around",
+                            alignItems: "center",
                           }}
                         ></div>
                         <div
                           style={{
-                            backgroundImage: `url(${reactImg})`,
-                            height: "80%",
+                            backgroundImage: `url(/sass.png)`,
+                            height: "50%",
                             width: "15%",
                             backgroundSize: "contain",
                             backgroundRepeat: "no-repeat",
+                            display: "flex",
+                            justifyContent: "space-around",
+                            alignItems: "center",
                           }}
                         ></div>
                         <div
                           style={{
-                            backgroundImage: `url(${reactImg})`,
-                            height: "80%",
+                            backgroundImage: `url(https://framerusercontent.com/images/48ha9ZR9oZQGQ6gZ8YUfElP3T0A.png)`,
+                            height: "50%",
                             width: "15%",
                             backgroundSize: "contain",
                             backgroundRepeat: "no-repeat",
+                            display: "flex",
+                            justifyContent: "space-around",
+                            alignItems: "center",
+                          }}
+                        ></div>
+                        <div
+                          style={{
+                            backgroundImage: `url(/tailwind.png)`,
+                            height: "50%",
+                            width: "15%",
+                            backgroundSize: "contain",
+                            backgroundRepeat: "no-repeat",
+                            display: "flex",
+                            alignItems: "center",
                           }}
                         ></div>
                       </div>
@@ -121,7 +146,7 @@ const Skills = React.forwardRef(
                     height: "8%",
                   }}
                 ></div>
-                <div style={{ fontSize: sm ? "1.5rem" : "1rem" }}>
+                <div style={{ fontSize: sm ? "1.3rem" : "1rem" }}>
                   I have a genuine passion for inventing from scratch. With a
                   proven track record of working with companies, I excel at
                   turning concepts into reality while ensuring a delightful user
@@ -137,7 +162,7 @@ const Skills = React.forwardRef(
                   alignItems: "end",
                 }}
               >
-                <div style={{ fontSize: sm ? "1.5rem" : "1rem" }}>
+                <div style={{ fontSize: sm ? "1.2rem" : "1rem" }}>
                   With a solid understanding of JavaScript, I work with
                   databases like MongoDB and MySQL, implementing RESTful APIs
                   for seamless data transactions. I explore different approaches
@@ -158,8 +183,9 @@ const Skills = React.forwardRef(
                     backgroundImage: `url(/tsuna.png)`,
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
-                    width: "60%",
-                    height: "8%",
+                    width: "30%",
+                    height: "10%",
+                    // border: "solid 3px black",
                     marginRight: "-6%",
                   }}
                 ></div>
@@ -169,58 +195,60 @@ const Skills = React.forwardRef(
               <>
                 <Hune
                   width={300}
-                  top={500}
-                  left={550}
+                  top={"80%"}
+                  left={"60%"}
                   name={"React"}
                   picture={reactImg}
                   delay={0}
                 ></Hune>
                 <Hune
                   width={300}
-                  top={550}
-                  left={0}
+                  top={"75%"}
+                  left={"10%"}
                   name={"Typescript"}
-                  picture={reactImg}
+                  picture={"/typescript.png"}
                   delay={1}
                 ></Hune>
                 <Hune
                   width={350}
-                  top={520}
-                  left={1200}
+                  top={"70%"}
+                  left={"-8%"}
                   name={"SASS"}
-                  picture={reactImg}
+                  picture={"/sass.png"}
                   delay={0.1}
                 ></Hune>
                 <Hune
                   width={250}
-                  top={550}
-                  left={800}
+                  top={"70%"}
+                  left={"20%"}
                   name={"HTML"}
-                  picture={reactImg}
+                  picture={"/html-5.png"}
                   delay={2}
                 ></Hune>
                 <Hune
                   width={240}
-                  top={540}
-                  left={200}
+                  top={"80%"}
+                  left={"30%"}
                   name={"NodeJS"}
-                  picture={reactImg}
+                  picture={"nodejs.png"}
                   delay={4}
                 ></Hune>
                 <Hune
                   width={400}
-                  top={500}
-                  left={900}
-                  name={"Express.js"}
-                  picture={reactImg}
+                  top={"70%"}
+                  left={"70%"}
+                  name={"Next.js"}
+                  picture={"/next-js.png"}
                   delay={3}
                 ></Hune>
                 <Hune
                   width={350}
-                  top={560}
-                  left={400}
+                  top={"60%"}
+                  left={"40%"}
                   name={"framer motion"}
-                  picture={reactImg}
+                  picture={
+                    "https://framerusercontent.com/images/48ha9ZR9oZQGQ6gZ8YUfElP3T0A.png"
+                  }
                   delay={1}
                 ></Hune>
               </>

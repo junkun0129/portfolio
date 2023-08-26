@@ -19,7 +19,8 @@ export const projects = [
         text: "Remember to save your progress periodically so that you can resume the game from where you left off the next time you play.",
       },
     ],
-    url: "https://iwatani-quest-frontend.vercel.app/",
+    appUrl: "https://iwatani-quest-frontend.vercel.app/",
+    gitUrl: "https://github.com/junkun0129/IwataniQuest-frontend",
   },
   {
     name: "whitleblower",
@@ -41,21 +42,28 @@ export const projects = [
         text: "administrators have the ability to customize each claim and add customized labels to categorize them effectively. also administrators can respond to the employees who reported the claims. ",
       },
     ],
-    url: "https://dev-whistler-app.vercel.app/login",
+    appUrl: "https://dev-whistler-app.vercel.app/login",
+    gitUrl:
+      "https://github.com/WMAD-0522-Final-Project/whistleblower-app-frontend",
   },
   {
-    name: "English Translator",
+    name: "Twitter Clone",
     showcase: [
       {
-        url: "./LanguageApp-home.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
+        url: "./twitter-clone3.png",
+        text: "Built using Next.js, Prisma, and Tailwind CSS, this Twitter clone mirrors the familiar interface of the platform. Its standout feature is a chronological feed that showcases tweets from followed users, with the latest posts displayed at the top.",
       },
       {
-        url: "./LanguageApp-wordDetail.png",
-        text: "lorem ;as;dl ;slafd ;asldkfj ;asldf s;dlkfeiie ",
+        url: "./twitter-clone2.png",
+        text: "This app incorporates authentication methods using Discord. Users have the option to create accounts by linking their Discord accounts, allowing for a streamlined registration process.",
+      },
+      {
+        url: "./twitter-clone1.png",
+        text: "This Next.js app replicates Twitter's core features: user connections through follows, tweet interaction via likes, and composing posts within a 280-character limit that can include text, emojis, images, and links, enriching personalized timelines.",
       },
     ],
-    url: "https://language-app-6s3v-ofujpyn03-junkun0129.vercel.app/",
+    appUrl: "https://twitter-clone-azure-nine.vercel.app/",
+    gitUrl: "https://github.com/junkun0129/twitter-clone",
   },
   {
     name: "howl's landing page",
@@ -73,6 +81,7 @@ export const projects = [
         text: "incorporating color variations that blend with the concept of `Howl's Moving Castle,` it's important to consider the movie's aesthetic and themes.",
       },
     ],
-    url: "https://houl-landing-page-m3s73jpis-junkun0129.vercel.app/",
+    appUrl: "https://houl-landing-page-m3s73jpis-junkun0129.vercel.app/",
+    gitUrl: "https://github.com/junkun0129/houl-landingPage",
   },
 ];

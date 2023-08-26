@@ -82,9 +82,9 @@ const ProjectMobile = React.forwardRef(
                               zIndex: "10",
                             }}
                           >
-                            <Tooltip title={projects[i].url}>
-                              <IconButton>
-                                <Link href={projects[i].url} color="inherit">
+                            <Tooltip title={projects[i].appUrl}>
+                              <IconButton aria-label="ddd">
+                                <Link href={projects[i].appUrl} color="inherit">
                                   <GitHubIcon fontSize="large" />
                                 </Link>
                               </IconButton>
@@ -98,7 +98,7 @@ const ProjectMobile = React.forwardRef(
                             flexWrap: "wrap",
                             width: "94%",
                             height: "30%",
-                            fontSize: "1.8rem",
+                            fontSize: "0.9rem",
                             padding: "1rem",
                             marginTop: "5%",
                             background: "rgb(240, 240, 240,0.7)",

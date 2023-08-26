@@ -6,6 +6,7 @@ import reactImg from "/react.png";
 import styles from "./Project.module.scss";
 import { Tooltip, IconButton, Link, useMediaQuery, Theme } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import Tama from "/tama2.png";
 import Frame from "/projectIntroduce-betu.png";
 import Kumo from "/cloud2.png";
@@ -332,10 +333,20 @@ const Project = React.forwardRef(
                                     zIndex: "10",
                                   }}
                                 >
-                                  <Tooltip title={projects[i].url}>
+                                  <Tooltip title={"go to App"}>
                                     <IconButton>
                                       <Link
-                                        href={projects[i].url}
+                                        href={projects[i].appUrl}
+                                        color="inherit"
+                                      >
+                                        <ExitToAppIcon fontSize="large" />
+                                      </Link>
+                                    </IconButton>
+                                  </Tooltip>
+                                  <Tooltip title={"go to Github"}>
+                                    <IconButton>
+                                      <Link
+                                        href={projects[i].gitUrl}
                                         color="inherit"
                                       >
                                         <GitHubIcon fontSize="large" />

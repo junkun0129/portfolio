@@ -9,8 +9,8 @@ import { motion } from "framer-motion";
 
 type type = {
   width: number;
-  top: number;
-  left: number;
+  top: string;
+  left: string;
   name: string;
   picture: string;
   delay: number;
